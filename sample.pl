@@ -117,3 +117,12 @@ sub angry {
     print("come down");
 }
 print("\n");
+
+my $task = 1;
+my %taskFunc = (
+    '1' => [\&FcountBet, [$bet, $type, $result, $patch]],
+    '2' => [\&FcountWinMoney, [$bet, $type, $result, $patch]],
+    '3' => [\&FcountWinMoney, [$bet, $type, $result, $patch]],
+);
+my ($func, $arg) = @{$taskFunc{$task} || []};
+&{$func}(@{$arg});
